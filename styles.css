@@ -35,9 +35,13 @@ p {
     font-size: 15px;
 }
 
+img{
+    max-width: 100%;
+}
+
 /* Card Styles */
 
-.card-wrapper{
+.card{
     display: flex;
     background-color: var(--card-background);
     margin: 2em;
@@ -45,7 +49,7 @@ p {
     overflow: hidden;
 }
 
-.text-container{
+.card__body{
     padding: 4em;
     max-width: 550px;
     display: flex;
@@ -53,42 +57,38 @@ p {
     justify-content: space-between;
 }
 
-.text-container h1,
-.text-container h2{
+.card__body__title,
+.card__body__rating h2{
     color: var(--main-heading)
 }
 
-.paragraph-element{
-    margin:1.5em 0;
-    color: var(--main-paragraph);
-    line-height: 1.6;
-}
-
-.rating-container{
-    max-width:80%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.rating-container p{
+.card__body__paragraph,
+.card__body__rating p{
     color: var(--stat-headings);
     font-size: 12px;
     letter-spacing: 2px;
 }
 
-.image-container{
+.card__body__paragraph{
+    margin:1.5em 0;
+    line-height: 1.6;
+}
+
+.card__body__rating{
+    max-width:80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card__image{
     position: relative;
 }
 
-.image-container img{
-    max-width: 100%;
-}
-
-.mobile-img{
+.card__image__mobile-img{
     display: none;
 }
 
-.image-container::before{
+.card__image::before{
     position: absolute;
     content:'';
     background-color: var(--accent);
@@ -111,17 +111,17 @@ footer a{
 /* Media Queries */
 
 @media screen and (max-width:68.75em) {
-    .card-wrapper{
+    .card{
         flex-direction: column-reverse;
         margin:2em;
     }
-    .mobile-img{
+    .card__image__mobile-img{
         display: block;
     }
-    .desktop-img{
+    .card__image__desktop-img{
         display: none;
     }
-    .text-container{
+    .card__body{
         text-align: center;
         width: 100%;
         margin: auto;
@@ -129,29 +129,29 @@ footer a{
 }
 
 @media screen and (max-width:34.375em) {
-    .rating-container{
+    .card__body{
+        padding:1.5em;
+    }
+    .card__body__title{
+        font-size: 13px;
+    }
+    .card__body__paragraph{
+        font-size:10px;
+    }
+    .card__body__rating{
         flex-direction: column;
         margin: auto;
     }
-    .text-container{
-        padding:1.5em;
-    }
-    .rating-container > div{
+    .card__body__rating > div{
         margin: .5em 0;
-    }
-    .title-element{
-        font-size: 13px;
-    }
-    .paragraph-element{
-        font-size:10px;
     }
 }
 
 @media screen and (max-width:20em){
-    .text-container{
+    .card__body{
         padding: 1em;
     }
-    .title-element{
+    .card__body__title{
         font-size: 10px;
     }
 }
